@@ -1,7 +1,6 @@
-extern crate xplm;
-
 use xplm::plugin::{Plugin, PluginInfo};
-use xplm::{debugln, xplane_plugin};
+use xplm::{debug, xplane_plugin};
+
 
 struct MinimalPlugin;
 
@@ -10,7 +9,7 @@ impl Plugin for MinimalPlugin {
 
     fn start() -> Result<Self, Self::Error> {
         // The following message should be visible in the developer console and the Log.txt file
-        debugln!("Hello, World! From the Minimal Rust Plugin");
+        debug("Hello, World! From the Minimal Rust Plugin\n");
         Ok(MinimalPlugin)
     }
 
