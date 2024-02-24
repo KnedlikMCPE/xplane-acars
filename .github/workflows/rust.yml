@@ -12,21 +12,19 @@ env:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: macos-latest-xlarge
 
     steps:
     - uses: actions/checkout@v3
     - name: Install rustup
       run: curl https://sh.rustup.rs -sSf | sh -s -- -y
-    - name: Install cross
-      run: cargo install cross --git https://github.com/cross-rs/cross
-    - name: Install Mac target
-      run: rustup target add aarch64-apple-darwin
+    - name: Install Linux target
+      run: rustup target add x86_64-unknown-linux-gnu
     - name: Install Win target
       run: rustup target add x86_64-pc-windows-gnu
-    - name: Build Linux
-      run: cargo build --verbose
     - name: Build Mac
-      run: cross build --verbose --target aarch64-apple-darwin
+      run: cargo build --verbose
+    - name: Build Linux
+      run: cargo build --verbose --target x86_64-unknown-linux-gnu
     - name: Build Win
-      run: cross build --verbose --target x86_64-pc-windows-gnu
+      run: cargo build --verbose --target x86_64-pc-windows-gnu
