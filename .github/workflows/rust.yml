@@ -19,9 +19,9 @@ jobs:
     - name: Configure
       run: curl https://sh.rustup.rs -sSf | sh -s -- -y
     - name: Install Mac target
-      run: rustup target add aarch64-apple-darwin -y
+      run: rustup target add aarch64-apple-darwin
     - name: Install Win target
-      run: rustup target add x86_64-pc-windows-gnu -y
+      run: rustup target add x86_64-pc-windows-gnu
     - name: Build Linux
       run: cargo build --verbose
     - name: Build Mac
